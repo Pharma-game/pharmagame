@@ -1,0 +1,6 @@
+{
+  "name": "Nitroglycerin Escape Room: ساعد المريض!",
+  "description": "لعبة غرفة هروب تعليمية تفاعلية بالعربية المصرية لتعليم مرضى القلب الاستخدام الآمن لدواء النيتروجليسرين.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
