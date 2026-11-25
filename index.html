@@ -423,12 +423,100 @@
 
     /* Subtle Thin Footer Credit */
     .app-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
       text-align: center;
       padding: 10px 16px 14px;
       font-size: 0.94rem;
       font-weight: 400;
       color: #6B5E54;
       letter-spacing: 0.01em;
+    }
+
+    .footer-sep {
+      opacity: 0.45;
+      user-select: none;
+    }
+
+    .footer-team-btn {
+      appearance: none;
+      background: rgba(15, 118, 110, 0.08);
+      border: 1px solid rgba(15, 118, 110, 0.25);
+      color: var(--accent-teal-dark);
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.16s, border-color 0.16s, transform 0.15s;
+    }
+
+    .footer-team-btn:hover {
+      background: rgba(15, 118, 110, 0.15);
+      border-color: var(--accent-teal);
+    }
+
+    .footer-team-btn:active {
+      transform: scale(0.97);
+    }
+
+    /* Team Credits Modal */
+    .credits-card {
+      max-width: 540px;
+      direction: ltr;
+      text-align: left;
+    }
+
+    .credits-lead-box {
+      background: linear-gradient(135deg, #F0FDFA 0%, #CCFBF1 100%);
+      border: 1.5px solid #5EEAD4;
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+    }
+
+    .credits-section-label {
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-teal-dark);
+      margin-bottom: 4px;
+    }
+
+    .credits-lead-name {
+      font-size: 1.12rem;
+      font-weight: 900;
+      color: var(--ink);
+    }
+
+    .credits-members-label {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink-muted);
+      margin-bottom: 10px;
+    }
+
+    .credits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .credits-member {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 9px 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
     }
 
     /* Red Flash & Shake for Penalty */
@@ -1341,6 +1429,30 @@
       margin-bottom: 18px;
     }
 
+    .victory-stars {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .victory-star {
+      width: 34px;
+      height: 34px;
+      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.22));
+      transition: transform 0.25s var(--ease-out);
+    }
+
+    .victory-rank {
+      display: inline-block;
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: #FEF3C7;
+      margin-bottom: 8px;
+      letter-spacing: 0.01em;
+    }
+
     .victory-headline {
       font-size: clamp(1.18rem, 2.1vw, 1.52rem);
       font-weight: 900;
@@ -1445,9 +1557,83 @@
 
     .victory-actions {
       display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .victory-export-row {
+      display: flex;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .btn-export {
+      appearance: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 800;
+      cursor: pointer;
+      direction: ltr;
+      transition: transform 0.15s var(--ease-out), background-color 0.16s, border-color 0.16s, box-shadow 0.16s;
+    }
+
+    .btn-export:active {
+      transform: scale(0.97);
+    }
+
+    .btn-export-primary {
+      background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+      color: #FFFFFF;
+      border: 1.5px solid #B45309;
+      box-shadow: 0 5px 14px rgba(180, 83, 9, 0.24);
+    }
+
+    .btn-export-primary:hover {
+      filter: brightness(1.05);
+    }
+
+    .btn-export-outline {
+      background: #F0FDFA;
+      color: var(--accent-teal-dark);
+      border: 1.5px solid #5EEAD4;
+    }
+
+    .btn-export-outline:hover {
+      background: #CCFBF1;
+      border-color: var(--accent-teal);
+    }
+
+    .btn-export-subtle {
+      background: var(--surface-soft);
+      color: var(--ink-muted);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-export-subtle:hover {
+      background: #EFE7DA;
+      color: var(--ink);
+    }
+
+    .victory-save-status {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--accent-teal-dark);
+      min-height: 20px;
+      direction: ltr;
+      text-align: center;
+    }
+
+    #creditsModal {
+      z-index: 95;
     }
 
     /* Confetti Canvas */
@@ -1648,6 +1834,21 @@
       .app-footer {
         font-size: 0.84rem;
         padding: 8px 12px calc(env(safe-area-inset-bottom, 0px) + 12px);
+      }
+
+      .footer-team-btn {
+        font-size: 0.8rem;
+        padding: 5px 11px;
+      }
+
+      .credits-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
+      }
+
+      .credits-member {
+        font-size: 0.84rem;
+        padding: 8px 10px;
       }
 
       /* Mobile Penalty Toast */
@@ -1887,6 +2088,15 @@
 
       .roshetta-title {
         font-size: 1.06rem;
+      }
+
+      .victory-export-row {
+        flex-direction: column;
+      }
+
+      .victory-export-row .btn-export,
+      .victory-actions .btn-primary {
+        width: 100%;
       }
     }
 
@@ -2344,8 +2554,10 @@
     </main>
 
     <!-- Subtle Thin Credit Line at the Bottom -->
-    <footer class="app-footer">
-      نشاط مادة فارما 1 Lab A3
+    <footer class="app-footer" dir="ltr">
+      <span>Pharmacology-1 Activity (Lab A3)</span>
+      <span class="footer-sep" aria-hidden="true">·</span>
+      <button id="openCreditsBtn" type="button" class="footer-team-btn">Team Credits</button>
     </footer>
   </div>
 
@@ -2994,6 +3206,8 @@
 
         <!-- Personalized Congratulatory Banner -->
         <div class="victory-banner">
+          <div id="victoryStars" class="victory-stars" aria-label="التقييم بالنجوم"></div>
+          <div id="victoryRankLabel" class="victory-rank">أداء ممتاز!</div>
           <h3 id="victoryHeadline" class="victory-headline">
             أحسنت! كده ساعدت المريض وعرّفته كل المعلومات الصحيحة، والخزنة اتفتحت ووصلنا لعلبة النيتروجليسرين!
           </h3>
@@ -3071,6 +3285,29 @@
         </section>
 
         <div class="victory-actions">
+          <div class="victory-export-row">
+            <button id="saveResultCardBtn" type="button" class="btn-export btn-export-primary">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              <span>Save Result Card</span>
+            </button>
+            <button id="saveGuideBtn" type="button" class="btn-export btn-export-outline">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" y1="18" x2="12" y2="12"/>
+                <polyline points="9 15 12 18 15 15"/>
+              </svg>
+              <span>Save Safety Guide</span>
+            </button>
+            <button id="victoryCreditsBtn" type="button" class="btn-export btn-export-subtle">
+              <span>Team Credits</span>
+            </button>
+          </div>
+          <div id="victorySaveStatus" class="victory-save-status" aria-live="polite"></div>
           <button id="playAgainBtn" type="button" class="btn-primary">العب مرة تانية</button>
         </div>
       </div>
@@ -3093,6 +3330,42 @@
           <strong id="timeoutGreeting">متقلقش!</strong> المريض لسه محتاج مساعدتك عشان نفتح الخزنة اللي فيها الدواء ونعلّمه القواعد الصحيحة للنيتروجليسرين.
         </p>
         <button id="retryAfterTimeoutBtn" type="button" class="btn-primary" style="width:100%;">حاول مرة تانية (ابدأ من جديد)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       TEAM CREDITS MODAL
+       ======================================================================== -->
+  <div id="creditsModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="creditsTitle">
+    <div class="modal-card credits-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-kicker">Pharmacology-1 Activity (Lab A3)</span>
+          <h2 id="creditsTitle" class="modal-title">Project Team</h2>
+        </div>
+        <button class="modal-close" type="button" data-close="creditsModal" aria-label="Close">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="credits-lead-box">
+          <div class="credits-section-label">Created by</div>
+          <div class="credits-lead-name">Nour Abdulwahhab</div>
+        </div>
+
+        <div class="credits-members-label">Prepared by</div>
+        <div class="credits-grid">
+          <div class="credits-member">Nour Fekry</div>
+          <div class="credits-member">Hana Tarek</div>
+          <div class="credits-member">Raghad Ahmed</div>
+          <div class="credits-member">Jana Mostafa</div>
+          <div class="credits-member">Adel Mohammad</div>
+          <div class="credits-member">Abd Elkreem Ahmed</div>
+          <div class="credits-member">Ali Ahmed</div>
+          <div class="credits-member">Rawan Nabil</div>
+          <div class="credits-member">Salma Ayman</div>
+          <div class="credits-member">Samaa Mohammad</div>
+          <div class="credits-member">Sara Khaled</div>
+        </div>
       </div>
     </div>
   </div>
@@ -3526,6 +3799,8 @@
         for (let i = 1; i <= 6; i++) hideModal(el.modals[i]);
         hideModal(el.victoryModal);
         hideModal(el.timeoutModal);
+        const creditsModalEl = document.getElementById('creditsModal');
+        if (creditsModalEl) hideModal(creditsModalEl);
       }
 
       function updateTimerAndECG() {
@@ -4375,6 +4650,391 @@
         confettiAnimId = requestAnimationFrame(frame);
       }
 
+      function getPerformanceRating() {
+        if (state.mistakes <= 1 && state.timeLeft >= 120) {
+          return { stars: 3, arLabel: 'أداء ممتاز! (3 / 3 نجوم)', enLabel: 'Excellent Performance!' };
+        }
+        if (state.mistakes <= 4) {
+          return { stars: 2, arLabel: 'أداء جيد جداً! (2 / 3 نجوم)', enLabel: 'Great Job!' };
+        }
+        return { stars: 1, arLabel: 'أحسنت في إكمال المهمة! (1 / 3 نجوم)', enLabel: 'Mission Completed!' };
+      }
+
+      function renderVictoryStars(starCount) {
+        const container = document.getElementById('victoryStars');
+        if (!container) return;
+        container.innerHTML = [1, 2, 3].map(i => {
+          const earned = i <= starCount;
+          return `<svg class="victory-star" viewBox="0 0 36 36" aria-hidden="true">
+            <path d="M18 3.2 L22.5 12.4 L32.6 13.9 L25.3 21 L27 31.1 L18 26.3 L9 31.1 L10.7 21 L3.4 13.9 L13.5 12.4 Z"
+              fill="${earned ? '#FBBF24' : 'rgba(255,255,255,0.22)'}"
+              stroke="${earned ? '#FEF3C7' : 'rgba(255,255,255,0.45)'}"
+              stroke-width="2" stroke-linejoin="round"/>
+          </svg>`;
+        }).join('');
+      }
+
+      function drawRoundedRect(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + w - r, y);
+        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+        ctx.lineTo(x + w, y + h - r);
+        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        ctx.lineTo(x + r, y + h);
+        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+        ctx.lineTo(x, y + r);
+        ctx.quadraticCurveTo(x, y, x + r, y);
+        ctx.closePath();
+      }
+
+      function drawCanvasStar(ctx, cx, cy, outerR, innerR, filled) {
+        ctx.beginPath();
+        for (let i = 0; i < 10; i++) {
+          const r = i % 2 === 0 ? outerR : innerR;
+          const angle = -Math.PI / 2 + (i * Math.PI) / 5;
+          const x = cx + Math.cos(angle) * r;
+          const y = cy + Math.sin(angle) * r;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.closePath();
+        ctx.fillStyle = filled ? '#FBBF24' : 'rgba(255,255,255,0.22)';
+        ctx.fill();
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = filled ? '#FEF3C7' : 'rgba(255,255,255,0.45)';
+        ctx.stroke();
+      }
+
+      function triggerCanvasDownload(canvas, filename, statusMsg) {
+        const statusEl = document.getElementById('victorySaveStatus');
+        const finalize = url => {
+          const link = document.createElement('a');
+          link.download = filename;
+          link.href = url;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          if (url.startsWith('blob:')) setTimeout(() => URL.revokeObjectURL(url), 4000);
+          if (statusEl) {
+            statusEl.textContent = statusMsg;
+            setTimeout(() => { if (statusEl.textContent === statusMsg) statusEl.textContent = ''; }, 3600);
+          }
+        };
+
+        if (canvas.toBlob) {
+          canvas.toBlob(blob => {
+            if (blob) finalize(URL.createObjectURL(blob));
+            else finalize(canvas.toDataURL('image/png'));
+          }, 'image/png');
+        } else {
+          finalize(canvas.toDataURL('image/png'));
+        }
+      }
+
+      function downloadResultCard() {
+        const W = 1080;
+        const H = 1320;
+        const canvas = document.createElement('canvas');
+        canvas.width = W;
+        canvas.height = H;
+        const ctx = canvas.getContext('2d');
+        const rating = getPerformanceRating();
+        const timeUsed = Math.max(0, INITIAL_TIME - state.timeLeft);
+
+        // Warm Background
+        ctx.fillStyle = '#F7F2E8';
+        ctx.fillRect(0, 0, W, H);
+
+        // Outer Card Frame
+        drawRoundedRect(ctx, 44, 44, W - 88, H - 88, 36);
+        ctx.fillStyle = '#FFFDF9';
+        ctx.fill();
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = '#D5C8B5';
+        ctx.stroke();
+
+        // Top Teal Header Banner
+        ctx.save();
+        drawRoundedRect(ctx, 44, 44, W - 88, 430, 36);
+        ctx.clip();
+        const grad = ctx.createLinearGradient(0, 44, W, 474);
+        grad.addColorStop(0, '#0F766E');
+        grad.addColorStop(1, '#115E59');
+        ctx.fillStyle = grad;
+        ctx.fillRect(44, 44, W - 88, 430);
+        // Subtle decorative circles
+        ctx.fillStyle = 'rgba(255,255,255,0.06)';
+        ctx.beginPath(); ctx.arc(170, 120, 140, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath(); ctx.arc(920, 410, 170, 0, Math.PI * 2); ctx.fill();
+        ctx.restore();
+
+        // NTG Mini Bottle Emblem in Header
+        ctx.save();
+        ctx.translate(W / 2, 138);
+        ctx.beginPath();
+        ctx.arc(0, 0, 56, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255,255,255,0.14)';
+        ctx.fill();
+        drawRoundedRect(ctx, -15, -34, 30, 12, 4);
+        ctx.fillStyle = '#F8FAFC'; ctx.fill();
+        drawRoundedRect(ctx, -20, -21, 40, 52, 8);
+        ctx.fillStyle = '#78350F'; ctx.fill();
+        ctx.lineWidth = 2.5; ctx.strokeStyle = '#FDE68A'; ctx.stroke();
+        drawRoundedRect(ctx, -15, -7, 30, 24, 4);
+        ctx.fillStyle = '#FEF3C7'; ctx.fill();
+        ctx.direction = 'ltr';
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#78350F';
+        ctx.font = '900 13px Cairo, sans-serif';
+        ctx.fillText('NTG', 0, 9);
+        ctx.restore();
+
+        // Header Title & Subtitle
+        ctx.direction = 'ltr';
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = '900 46px Cairo, sans-serif';
+        ctx.fillText('Nitroglycerin Escape Room', W / 2, 258);
+
+        ctx.fillStyle = '#CCFBF1';
+        ctx.font = '700 26px Cairo, sans-serif';
+        ctx.fillText('Safe Unlocked · Mission Accomplished', W / 2, 304);
+
+        // 3 Stars Row
+        const starPositions = [W / 2 - 92, W / 2, W / 2 + 92];
+        starPositions.forEach((sx, idx) => {
+          drawCanvasStar(ctx, sx, 382, 34, 15, idx < rating.stars);
+        });
+
+        ctx.fillStyle = '#FEF3C7';
+        ctx.font = '800 24px Cairo, sans-serif';
+        ctx.fillText(rating.enLabel, W / 2, 444);
+
+        // Player Name Section
+        let cursorY = 550;
+        if (state.playerName) {
+          ctx.fillStyle = '#5C4E45';
+          ctx.font = '700 24px Cairo, sans-serif';
+          ctx.fillText('AWARDED TO', W / 2, cursorY);
+
+          drawRoundedRect(ctx, 130, cursorY + 24, W - 260, 108, 22);
+          ctx.fillStyle = '#F0FDFA';
+          ctx.fill();
+          ctx.lineWidth = 2.5;
+          ctx.strokeStyle = '#99F6E4';
+          ctx.stroke();
+
+          ctx.fillStyle = '#0F766E';
+          ctx.font = '900 44px Cairo, sans-serif';
+          ctx.fillText(state.playerName, W / 2, cursorY + 93);
+          cursorY += 186;
+        } else {
+          ctx.fillStyle = '#0F766E';
+          ctx.font = '900 38px Cairo, sans-serif';
+          ctx.fillText('Certificate of Completion', W / 2, cursorY + 28);
+          cursorY += 98;
+        }
+
+        // Arabic Congratulatory Line
+        ctx.direction = 'rtl';
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#261E1A';
+        ctx.font = '800 28px Cairo, sans-serif';
+        ctx.fillText('تم مساعدة المريض وفتح الخزنة بنجاح وإتقان قواعد أمان النيتروجليسرين', W / 2, cursorY + 18);
+
+        // 3 Stat Tiles
+        const tileTop = cursorY + 74;
+        const tileW = 276;
+        const tileH = 166;
+        const tileGap = 28;
+        const startX = (W - (tileW * 3 + tileGap * 2)) / 2;
+        const stats = [
+          { label: 'TIME TAKEN', value: formatTime(timeUsed), color: '#0F766E' },
+          { label: 'TIME LEFT', value: formatTime(state.timeLeft), color: '#D97706' },
+          { label: 'MISTAKES', value: String(state.mistakes), color: state.mistakes === 0 ? '#15803D' : '#DC2626' }
+        ];
+
+        ctx.direction = 'ltr';
+        stats.forEach((st, idx) => {
+          const tx = startX + idx * (tileW + tileGap);
+          drawRoundedRect(ctx, tx, tileTop, tileW, tileH, 22);
+          ctx.fillStyle = '#F7F2E8';
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = '#E2D7C7';
+          ctx.stroke();
+
+          ctx.fillStyle = '#5C4E45';
+          ctx.font = '800 20px Cairo, sans-serif';
+          ctx.fillText(st.label, tx + tileW / 2, tileTop + 56);
+
+          ctx.fillStyle = st.color;
+          ctx.font = '900 48px Cairo, sans-serif';
+          ctx.fillText(st.value, tx + tileW / 2, tileTop + 124);
+        });
+
+        // Secret Safe Code Badge
+        const codeTop = tileTop + tileH + 46;
+        drawRoundedRect(ctx, 210, codeTop, W - 420, 96, 20);
+        ctx.fillStyle = '#1E293B';
+        ctx.fill();
+        ctx.fillStyle = '#94A3B8';
+        ctx.font = '700 18px Cairo, sans-serif';
+        ctx.fillText('SAFE CODE UNLOCKED', W / 2, codeTop + 34);
+        ctx.fillStyle = '#34D399';
+        ctx.font = '900 34px Cairo, sans-serif';
+        ctx.fillText('5  -  1  -  2  -  3  -  4', W / 2, codeTop + 76);
+
+        // Clean Bottom Line (No course/activity label)
+        ctx.fillStyle = '#8C7D70';
+        ctx.font = '700 20px Cairo, sans-serif';
+        ctx.fillText('Nitroglycerin Patient Safety · Educational Escape Game', W / 2, H - 84);
+
+        triggerCanvasDownload(canvas, 'nitroglycerin-result-card.png', 'Result card saved!');
+      }
+
+      function wrapRtlLines(ctx, text, maxWidth) {
+        const words = text.trim().split(/\s+/);
+        const lines = [];
+        let current = '';
+        words.forEach(word => {
+          const test = current ? current + ' ' + word : word;
+          if (ctx.measureText(test).width > maxWidth && current) {
+            lines.push(current);
+            current = word;
+          } else {
+            current = test;
+          }
+        });
+        if (current) lines.push(current);
+        return lines;
+      }
+
+      function downloadSafetyGuide() {
+        const sections = Array.from(document.querySelectorAll('#victoryModal .roshetta-sec')).map(sec => ({
+          title: sec.querySelector('h4').textContent.trim(),
+          isRed: sec.classList.contains('red-sec'),
+          items: Array.from(sec.querySelectorAll('li')).map(li => li.textContent.trim())
+        }));
+
+        const W = 1080;
+        const padX = 56;
+        const cardInnerPadX = 34;
+        const textMaxW = W - padX * 2 - cardInnerPadX * 2 - 28;
+        const lineH = 38;
+
+        // Measure pass
+        const measureCanvas = document.createElement('canvas');
+        const mCtx = measureCanvas.getContext('2d');
+        mCtx.direction = 'rtl';
+
+        const layout = sections.map(sec => {
+          mCtx.font = '600 24px Cairo, sans-serif';
+          const wrappedItems = sec.items.map(item => wrapRtlLines(mCtx, item, textMaxW));
+          const totalLines = wrappedItems.reduce((sum, arr) => sum + arr.length, 0);
+          const cardH = 74 + totalLines * lineH + (sec.items.length - 1) * 10 + 24;
+          return { ...sec, wrappedItems, cardH };
+        });
+
+        const headerH = 190;
+        const gapY = 22;
+        const footerH = 76;
+        const totalCardsH = layout.reduce((sum, c) => sum + c.cardH, 0) + gapY * (layout.length - 1);
+        const H = headerH + 34 + totalCardsH + footerH;
+
+        const canvas = document.createElement('canvas');
+        canvas.width = W;
+        canvas.height = H;
+        const ctx = canvas.getContext('2d');
+
+        // Background
+        ctx.fillStyle = '#F4EFE6';
+        ctx.fillRect(0, 0, W, H);
+
+        // Header Banner
+        const grad = ctx.createLinearGradient(0, 0, W, headerH);
+        grad.addColorStop(0, '#0F766E');
+        grad.addColorStop(1, '#115E59');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, W, headerH);
+
+        ctx.direction = 'rtl';
+        ctx.textAlign = 'right';
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = '900 40px Cairo, sans-serif';
+        ctx.fillText('دليل الأمان للمريض — النيتروجليسرين', W - padX, 82);
+
+        ctx.fillStyle = '#CCFBF1';
+        ctx.font = '700 23px Cairo, sans-serif';
+        ctx.fillText('ملخص القواعد الصحيحة لاستخدام وتخزين دواء النيتروجليسرين بأمان', W - padX, 132);
+
+        // Emergency 123 Pill on Left of Header
+        drawRoundedRect(ctx, padX, 58, 250, 68, 16);
+        ctx.fillStyle = '#FEE2E2';
+        ctx.fill();
+        ctx.lineWidth = 2.5;
+        ctx.strokeStyle = '#FCA5A5';
+        ctx.stroke();
+        ctx.direction = 'rtl';
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#B91C1C';
+        ctx.font = '900 25px Cairo, sans-serif';
+        ctx.fillText('طوارئ الإسعاف: 123', padX + 125, 102);
+
+        // Draw Section Cards
+        let y = headerH + 34;
+        layout.forEach(sec => {
+          drawRoundedRect(ctx, padX, y, W - padX * 2, sec.cardH, 20);
+          ctx.fillStyle = '#FFFDF9';
+          ctx.fill();
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = sec.isRed ? '#FECACA' : '#E2D7C7';
+          ctx.stroke();
+
+          // Accent stripe on right edge
+          drawRoundedRect(ctx, W - padX - 10, y + 14, 10, sec.cardH - 28, 5);
+          ctx.fillStyle = sec.isRed ? '#DC2626' : '#0F766E';
+          ctx.fill();
+
+          // Section Title
+          ctx.direction = 'rtl';
+          ctx.textAlign = 'right';
+          ctx.fillStyle = sec.isRed ? '#DC2626' : '#115E59';
+          ctx.font = '900 28px Cairo, sans-serif';
+          ctx.fillText(sec.title, W - padX - cardInnerPadX, y + 48);
+
+          // Bullet Items
+          ctx.fillStyle = '#261E1A';
+          ctx.font = '600 24px Cairo, sans-serif';
+          let itemY = y + 90;
+          sec.wrappedItems.forEach(lines => {
+            // Bullet dot
+            ctx.beginPath();
+            ctx.arc(W - padX - cardInnerPadX - 4, itemY - 8, 4.5, 0, Math.PI * 2);
+            ctx.fillStyle = sec.isRed ? '#DC2626' : '#0F766E';
+            ctx.fill();
+
+            ctx.fillStyle = '#261E1A';
+            lines.forEach((line, liIdx) => {
+              ctx.fillText(line, W - padX - cardInnerPadX - 20, itemY + liIdx * lineH);
+            });
+            itemY += lines.length * lineH + 10;
+          });
+
+          y += sec.cardH + gapY;
+        });
+
+        // Subtle Footer Line
+        ctx.direction = 'ltr';
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#6B5E54';
+        ctx.font = '700 20px Cairo, sans-serif';
+        ctx.fillText('Nitroglycerin Patient Education · Safety Guide', W / 2, H - 30);
+
+        triggerCanvasDownload(canvas, 'nitroglycerin-safety-guide.png', 'Safety guide saved!');
+      }
+
       function winGame() {
         state.phase = 'WON';
         stopTimer();
@@ -4382,6 +5042,13 @@
         updateRoomProgressUI();
         sound.victory();
         launchConfetti();
+
+        const rating = getPerformanceRating();
+        renderVictoryStars(rating.stars);
+        const rankEl = document.getElementById('victoryRankLabel');
+        if (rankEl) rankEl.textContent = rating.arLabel;
+        const saveStatusEl = document.getElementById('victorySaveStatus');
+        if (saveStatusEl) saveStatusEl.textContent = '';
 
         const victoryGreeting = state.playerName ? `أحسنت يا ${state.playerName}!` : 'أحسنت!';
         document.getElementById('victoryHeadline').textContent =
@@ -4503,9 +5170,25 @@
         });
       }
 
+      const openCreditsBtn = document.getElementById('openCreditsBtn');
+      const creditsModalEl = document.getElementById('creditsModal');
+      if (openCreditsBtn && creditsModalEl) {
+        openCreditsBtn.addEventListener('click', () => {
+          sound.click();
+          showModal(creditsModalEl);
+        });
+        creditsModalEl.addEventListener('click', e => {
+          if (e.target === creditsModalEl) {
+            sound.click();
+            hideModal(creditsModalEl);
+          }
+        });
+      }
+
       document.addEventListener('keydown', e => {
         if (e.key === 'Escape') {
           for (let i = 1; i <= 6; i++) hideModal(el.modals[i]);
+          if (creditsModalEl) hideModal(creditsModalEl);
         }
       });
 
@@ -4521,6 +5204,30 @@
           }
         }
       });
+
+      const saveResultCardBtn = document.getElementById('saveResultCardBtn');
+      if (saveResultCardBtn) {
+        saveResultCardBtn.addEventListener('click', () => {
+          sound.click();
+          downloadResultCard();
+        });
+      }
+
+      const saveGuideBtn = document.getElementById('saveGuideBtn');
+      if (saveGuideBtn) {
+        saveGuideBtn.addEventListener('click', () => {
+          sound.click();
+          downloadSafetyGuide();
+        });
+      }
+
+      const victoryCreditsBtn = document.getElementById('victoryCreditsBtn');
+      if (victoryCreditsBtn && creditsModalEl) {
+        victoryCreditsBtn.addEventListener('click', () => {
+          sound.click();
+          showModal(creditsModalEl);
+        });
+      }
 
       document.getElementById('playAgainBtn').addEventListener('click', () => {
         sound.click();
